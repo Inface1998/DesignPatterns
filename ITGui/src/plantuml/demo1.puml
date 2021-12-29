@@ -1,0 +1,10 @@
+@startuml
+Class01 <|-- Class02: 一般化继承
+Class03  "1" *-- "n" Class04 : owns
+Class05 o-- Class06 : has-a
+Class07 .. Class08 :双向依赖
+Class09 -- Class10 :双向关联
+Class11 <|.. Class12: realizes
+Class13 --> "1" Class14:单向关联
+Class15 ..> Class16:单向依赖
+@enduml

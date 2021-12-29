@@ -1,0 +1,10 @@
+@startuml
+DaoSuppot <|-- PersonServiceBean: 泛化
+
+class DaoSuppot{
++save()
++delete()
+}
+class PersonServiceBean{
+}
+@enduml

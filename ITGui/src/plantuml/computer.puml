@@ -1,0 +1,12 @@
+@startuml
+class Computer{
+- mouse:Mouse
+- moniter:Moniter
+}
+class Mouse{
+}
+class Moniter{
+}
+Computer *-- Mouse
+Computer *-- Moniter
+@enduml

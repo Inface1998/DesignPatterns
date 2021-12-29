@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Person{
+}
+class IDCard{
+}
+Person"1"-- "1"IDCard
+@enduml

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/adapter/classadapter/Client.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/adapter/classadapter/IVoltage5V.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/adapter/classadapter/Phone.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/adapter/classadapter/Voltage220V.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/adapter/classadapter/VoltageAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/demeter/Demeter1.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/demeter/improve/Demeter1.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/inversion/DependecyInversion.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/inversion/improve/DependecyInversion.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/inversion/improve/DependencyPass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/liskov/improve/Liskov.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/ocp/improve/Ocp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/segregation/Segregation1.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/segregation/improve/Segregation1.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/principle/singleresponsibility/SingleResponsibility2.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/proxy/cglib/ProxyFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/uml/aggregation/Computer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/uml/composition/Person.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ITGui/src/com/atguigu/uml/dependence/PersonServiceBean.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
