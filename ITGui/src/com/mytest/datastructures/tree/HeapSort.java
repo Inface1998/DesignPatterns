@@ -2,6 +2,8 @@ package com.mytest.datastructures.tree;
 
 /**
  * @author : zhanghj
+ * 思路：利用大顶堆
+ *    1.判断非叶子节点
  */
 public class HeapSort {
     //这是一个main方法,是程序的入口：
@@ -41,7 +43,7 @@ public class HeapSort {
      */
     public static void adjustHeap(int arr[], int i, int length){
         int temp = arr[i];
-        //判断左子节点
+        //判断子树中是否有大于判断结点的结点
         for (int j = i*2 +1; j <length ; j = i*2 +1) {
             if(j+1 < length && arr[j] < arr[j+1] ){
                 j++;

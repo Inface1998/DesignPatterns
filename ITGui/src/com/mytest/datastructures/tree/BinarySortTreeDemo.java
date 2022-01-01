@@ -32,6 +32,22 @@ class BinarySortTree{
             System.out.println("can not iteration");
         }
     }
+
+    /**
+     * 删除结点的思路
+     * 1.删除结点为叶子结点时：直接删除
+     * 2.删除结点为非叶子结点时：判断左子树最大值所在位置
+     * 2.1 左子树最大值所在位置为叶子结点时：a.叶子结点父结点原对应叶子的指向设置null
+     *                                 b.使得删除结点的父结点指向叶子结点
+     *                                 c.叶子结点左右指向指向原删除结点左右指向
+     * 2.2 左子树最大值所在位置为非叶子结点时，删除结点父节点指向删除结点左子结点即可
+     */
+    public void delNode(){
+        //判断删除结点是否存在，不存在直接return
+
+        //删除结点为叶子结点时
+
+    }
 }
 class Node{
     int value;
@@ -39,6 +55,21 @@ class Node{
     Node right;
     public Node(int value){
         this.value = value;
+    }
+    public Node search(int value){
+        if(value == this.value){
+            return this;
+        }else if(value < this.value){
+            if(this.left == null){
+                return null;
+            }
+            return this.left.search(value);
+        }else{
+            if(this.right == null){
+                return null;
+            }
+            return this.right.search(value);
+        }
     }
     //添加结点的方法
     //递归的形式添加结点，需要满足二叉排序树的要求
