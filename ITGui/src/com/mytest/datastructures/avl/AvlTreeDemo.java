@@ -1,28 +1,30 @@
-package com.mytest.datastructures.tree;
+package com.mytest.datastructures.avl;
 
 /**
- * @author : zhanghj
+ * @Auther: zhaoss
+ * @Date: 2022/1/1 - 01 - 01 - 22:25
  */
-public class BinarySortTreeDemo {
+public class AvlTreeDemo {
     //这是一个main方法,是程序的入口：
     public static void main(String[] args) {
-        int[] arr = {7,3,10,12,5,1,9,0,-1,6,8};
-        BinarySortTree binarySortTree = new BinarySortTree();
+        int[] arr = {4,3,6,5,7,8};
+        //创建AVLTree对象
+        AVLTree avlTree = new AVLTree();
         for (int i = 0; i < arr.length; i++) {
-            binarySortTree.add(new Node(arr[i]));
+            avlTree.add(new Node(arr[i]));
         }
-        binarySortTree.infixOrder();
-        binarySortTree.delNode(-1);
-        System.out.println("删除后");
-        System.out.println("root=" + binarySortTree.getRoot());
-        binarySortTree.infixOrder();
+        //遍历
+        System.out.println("中序遍历");
+        avlTree.infixOrder();
+        System.out.println("没有平衡操作时");
+        System.out.println("树高"+avlTree.getRoot().height());
     }
 }
-//创建二叉排序树
-class BinarySortTree{
+//创建AVL树
+class AVLTree{
     private Node root;
-    public int getRoot() {
-        return root.value;
+    public Node getRoot() {
+        return root;
     }
     public void add(Node node){
         if(root == null){
@@ -118,6 +120,25 @@ class Node{
     int value;
     Node left;
     Node right;
+    //返回左子树的高度
+    public int leftHeight(){
+        if(left == null){
+            return 0;
+        }
+        return left.height();
+    }
+    //返回右子树的高度
+    public int rightHeight(){
+        if(right == null){
+            return 0;
+        }
+        return right.height();
+    }
+    //返回当前结点的高度，以该结点为根结点的树的高度
+    public int height(){
+        //妙啊
+        return Math.max(left == null ? 0:left.height(),right == null ? 0:right.height())+1;
+    }
     public Node(int value){
         this.value = value;
     }
@@ -138,7 +159,7 @@ class Node{
     }
     public Node searchParent(int value){
         if((this.left != null && this.left.value == value) ||
-        (this.right != null && this.right.value == value)){
+                (this.right != null && this.right.value == value)){
             return this;
         }else{
             if(value<this.value && this.left != null){
