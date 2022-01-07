@@ -135,16 +135,37 @@ class Node {
     }
     public void leftRotate(){
         /**
-         * 左旋转思路：1.新建一个新的根节点赋值为原来的root.right.value
-         *          2.将root.right结点的最小结点的左结点指向root.left
+         * 左旋转思路：1.新建一个节点赋值为原来根节点值
+         *           2.将新节点的左指向原来根节点的左指向
+         *          3.找到原来右子树的最小值,
+         *          将最小结点的左结点指向新节点
+         *          4.将根节点值赋予成根节点右节点
+         *          5.将根节点右指向赋成原来右节点右节点
          */
         Node newNode = new Node(value);
+        newNode.left = left;
         //找到原root结点right子树的最小左结点
         Node minNode = minNode(right);
-        minNode.left = left;
+        minNode.left = newNode;
         //替换新结点数值，将新结点左右指向原root.right左右
-        newNode.value = right.value;
-        newNode.left = right.left;
+        value = right.value;
+        right = right.right;
+    }
+    public void rightRotate(){
+        /**
+         * 左旋转思路：1.新建一个节点赋值为原来根节点值
+         *           2.将新节点的右指向原来根节点的右指向
+         *          3.找到原来左子树的最大值,
+         *          将最大结点的右结点指向新节点
+         *          4.将根节点值赋予成根节点左节点
+         *          5.将根节点左指向赋成原来左节点左节点
+         */
+        Node newNode = new Node(value);
+        newNode.right = right;
+        Node maxNode = maxNode(left);
+        maxNode.right = newNode;
+        value = left.value;
+        left = left.left;
     }
     public Node minNode(Node node){
         Node min = node;
@@ -152,6 +173,14 @@ class Node {
             return min;
         }else{
             return minNode(min.left);
+        }
+    }
+    public Node maxNode(Node node){
+        Node max = node;
+        if (max.right == null){
+            return max;
+        }else{
+            return minNode(max.right);
         }
     }
     public Node(int value) {
