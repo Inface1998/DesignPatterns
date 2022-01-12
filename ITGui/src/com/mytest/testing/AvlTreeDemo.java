@@ -1,4 +1,4 @@
-package avl;
+package com.mytest.testing;
 
 import org.junit.Test;
 
@@ -177,6 +177,35 @@ class Node {
         left = newNode;
         right = right.right;
     }
+    public void leftRotate1(){
+        /**
+         * 左旋转思路：1.新建一个节点赋值为原来根节点值
+         *           2.将新节点的左指向原来根节点的左指向
+         *          3.找到原来右子树的最小值,
+         *          将最小结点的左结点指向新节点
+         *          4.将根节点值赋予成根节点右节点
+         *          5.将根节点右指向赋成原来右节点右节点
+         */
+        Node newNode = new Node(value);
+        newNode.left = left;
+        //找到原root结点right子树的最小左结点
+        Node minNode = minNode(right);
+        minNode.left = newNode;
+        //替换新结点数值，将新结点左右指向原root.right左右
+        value = right.value;
+        left = right.left;
+        right = right.right;
+    }
+    public void rightRotate1(){
+        Node newNode = new Node(value);
+        newNode.right = right;
+        Node maxNode = maxNode(left);
+        maxNode.right = newNode;
+        value = left.value;
+        right = left.right;
+        left = left.left;
+
+    }
     public void rightRotate(){
         /**
          * --右旋转思路：1.新建一个节点赋值为原来根节点值
@@ -193,6 +222,22 @@ class Node {
         right = newNode;
         left = left.left;
 
+    }
+    public Node minNode(Node node){
+        Node min = node;
+        if (min.left == null){
+            return min;
+        }else{
+            return minNode(min.left);
+        }
+    }
+    public Node maxNode(Node node){
+        Node max = node;
+        if (max.right == null){
+            return max;
+        }else{
+            return maxNode(max.right);
+        }
     }
     public Node(int value) {
         this.value = value;
@@ -265,32 +310,11 @@ class Node {
                 this.right.add(node);
             }
         }
-        if(rightHeight() - leftHeight() > 1) {
-            //如果它的右子树的左子树的高度大于它的右子树的右子树的高度
-            if(right != null && right.leftHeight() > right.rightHeight()) {
-                //先对右子结点进行右旋转
-                right.rightRotate();
-                //然后在对当前结点进行左旋转
-                leftRotate(); //左旋转..
-            } else {
-                //直接进行左旋转即可
-                leftRotate();
-            }
-            return ; //必须要!!!
+        while (leftHeight() - rightHeight() > 1){
+            rightRotate1();
         }
-
-        //当添加完一个结点后，如果 (左子树的高度 - 右子树的高度) > 1, 右旋转
-        if(leftHeight() - rightHeight() > 1) {
-            //如果它的左子树的右子树高度大于它的左子树的高度
-            if(left != null && left.rightHeight() > left.leftHeight()) {
-                //先对当前结点的左结点(左子树)->左旋转
-                left.leftRotate();
-                //再对当前结点进行右旋转
-                rightRotate();
-            } else {
-                //直接进行右旋转即可
-                rightRotate();
-            }
+        while (rightHeight() - leftHeight() > 1){
+            leftRotate1();
         }
     }
 
