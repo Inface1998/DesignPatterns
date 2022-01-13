@@ -37,5 +37,15 @@ public class Recursion {
         }
         return function3(x, n / 2) * function3(x, n / 2);
     }
+    public static int function4(int x, int n){
+        if(n == 0){
+            return 1;
+        }
+        int t = function4(x,n/2);
+        if (n % 2 == 1){
+            return t * t *x;
+        }
+        return  t*t;
+    }
     
 }
