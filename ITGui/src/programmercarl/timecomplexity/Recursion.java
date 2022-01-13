@@ -37,5 +37,5 @@ public class Recursion {
         }
         return function3(x, n / 2) * function3(x, n / 2);
     }
-
+    
 }
