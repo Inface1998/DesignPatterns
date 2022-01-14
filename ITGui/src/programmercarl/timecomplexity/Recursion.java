@@ -28,14 +28,25 @@ public class Recursion {
         }
         return function2(x, n - 1) * x;
     }
-    public static int function3(int x, int n){
-        if (n == 0){
+
+    public static int function3(int x, int n) {
+        if (n == 0) {
             return 1;
         }
-        if(n % 2 == 1){
-            return function3(x,n/2)*function3(x,n/2)*x;
+        if (n % 2 == 1) {
+            return function3(x, n / 2) * function3(x, n / 2) * x;
         }
         return function3(x, n / 2) * function3(x, n / 2);
     }
-    
+
+    public static int function4(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int t = function4(x, n / 2);
+        if (n % 2 == 1) {
+            return t * t * x;
+        }
+        return t * t;
+    }
 }
